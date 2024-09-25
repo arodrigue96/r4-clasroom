@@ -1,4 +1,6 @@
 import { showErrorModal } from "../../dom/index.js";
+import { students } from "../../index.js";
+import { studentsStorage } from "../../storage/Storage.js";
 import { Student } from "../../types.js";
 import { generateId } from "../../utils.js";
 
@@ -10,7 +12,43 @@ export const getStudentsTotal = (students: Student[]): number =>
 // Crea una función para añadir un estudiante a la lista de estudiantes
 // La función debe recibir un array de estudiantes y los datos del estudiante a añadir
 // Si el estudiante ya existe en la lista, muestra un error con showErrorModal
-// export const addStudent =
+export const addStudent = (
+  students: Student[],
+  studentName: string,
+  studentLastName: string,
+  studentAge: number,
+  studentEmail: string,
+  studentPhoneNumber: string
+): void => {
+  const studentData: Student = {
+    id: generateId(students),
+    name: studentName,
+    lastName: studentLastName,
+    age: studentAge,
+    email: studentEmail,
+    phoneNumber: studentPhoneNumber,
+  };
+
+  students.forEach((student) => {
+    const isStudentInList = students.some(
+      (student) => student.email === studentEmail
+    );
+
+    if (!isStudentInList) {
+      students.push(studentData);
+    } else {
+      showErrorModal("El alumno ya existe");
+    }
+  });
+};
+
+/*const giveawayData: Giveaway = {
+    name: askAdminGiveawayInfo.giveawayName,
+    socialNetwork: askAdminGiveawayInfo.giveawaySocialNetwork,
+    participants: [],
+  };
+
+  programData.giveaways.push(giveawayData);*/
 
 // Crea una función para eliminar un estudiante de la lista de estudiantes
 // La función debe recibir un array de estudiantes y el id del estudiante a eliminar
