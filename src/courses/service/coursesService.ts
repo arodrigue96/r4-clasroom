@@ -4,8 +4,8 @@ import { generateId } from "../../utils.js";
 
 // Crea una función para obtener el total de cursos
 // La función debe recibir un array de cursos y devolver el total de cursos
-export const getCoursesTotal = (courses: Course[]): void => {
-  courses.length;
+export const getCoursesTotal = (courses: Course[]): number => {
+  return courses.length;
 };
 
 // Crea una función para añadir un curso a la lista de cursos
