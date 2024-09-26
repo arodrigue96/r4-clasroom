@@ -28,31 +28,26 @@ export const addStudent = (
     email: studentEmail,
     phoneNumber: studentPhoneNumber,
   };
+  const isStudentInList = students.some(
+    (student) => student.email === studentEmail
+  );
 
-  students.forEach((student) => {
-    const isStudentInList = students.some(
-      (student) => student.email === studentEmail
-    );
-
-    if (!isStudentInList) {
-      students.push(studentData);
-    } else {
-      showErrorModal("El alumno ya existe");
-    }
-  });
+  if (!isStudentInList) {
+    students.push(studentData);
+  } else {
+    showErrorModal("El alumno ya existe");
+  }
 };
-
-/*const giveawayData: Giveaway = {
-    name: askAdminGiveawayInfo.giveawayName,
-    socialNetwork: askAdminGiveawayInfo.giveawaySocialNetwork,
-    participants: [],
-  };
-
-  programData.giveaways.push(giveawayData);*/
 
 // Crea una función para eliminar un estudiante de la lista de estudiantes
 // La función debe recibir un array de estudiantes y el id del estudiante a eliminar
-// export const deleteStudent =
+export const deleteStudent = (students: Student[], studentID: number): void => {
+  students.forEach((student) => {
+    if (studentID === student.id) {
+      students.pop();
+    }
+  });
+};
 
 // Crea una función para obtener las opciones de estudiantes para rellenar un select
 // La función debe recibir un array de estudiantes
