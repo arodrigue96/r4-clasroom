@@ -5,7 +5,7 @@ import { generateId } from "../../utils.js";
 
 // Crea una función para obtener el total de notas
 // La función debe recibir un array de notas y devolver el total de notas
-// export const getGradesTotal =
+export const getGradesTotal = (grades: Grade[]): number => grades.length;
 
 // Crea una función para obtener los datos completos de una nota
 // La función debe recibir una nota
