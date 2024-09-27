@@ -36,3 +36,13 @@ export type StudentGrade = {
   name: string;
   lastName: string;
 };
+
+export type ShowGrade = {
+  id: number;
+  studentId: number;
+  courseId: number;
+  value: number;
+  studentName: string;
+  studentLastName: string;
+  courseName: string;
+};
