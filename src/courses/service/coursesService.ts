@@ -47,4 +47,12 @@ export const deleteCourse = (
 // La función debe devolver un array de objetos con dos propiedades: id y name
 // La propiedad id debe ser el id del curso
 // La propiedad name debe ser el nombre del curso
-// export const getCoursesOptions =
+
+export const getCoursesOptions = (courses: Course[]): Course[] => {
+  return courses.map((course) => {
+    return {
+      id: course.id,
+      name: course.name,
+    };
+  });
+};
