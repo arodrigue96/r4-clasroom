@@ -64,6 +64,6 @@ export const addGrade = (
   if (!gradeExist) {
     grades.push(gradeData);
   } else {
-    showErrorModal("Ya existe una nota para este alumno en otro curso");
+    showErrorModal("Ya existe una nota para este estudiante");
   }
 };
