@@ -13,11 +13,11 @@ export const getGradesTotal = (grades: Grade[]): number => grades.length;
 // más las propiedades studentName, studentLastName y courseName
 
 export const getGradeFullData = (grade: Grade): ShowGrade => {
-  let findStudentData = students.find(
+  const findStudentData = students.find(
     (student) => student.id === grade.studentId
   );
 
-  let findCourseData = courses.find((course) => course.id === grade.courseId);
+  const findCourseData = courses.find((course) => course.id === grade.courseId);
 
   const studentData: ShowGrade = {
     id: grade.id,
