@@ -74,8 +74,11 @@ export const getStudentsOptions = (students: Student[]): StudentGrade[] => {
 export const getStudentNameById = (
   students: Student[],
   studentId: number
-): void => {
-  students.forEach((studentId) => {
-    const studentFullName = `${studentId.name} + ${studentId.lastName}`;
-  });
+): string => {
+  const studentCheckId = students.find((student) => student.id === studentId);
+  const studentName = studentCheckId?.name;
+  const studentLastName = studentCheckId?.lastName;
+  const studentFullName = `${studentName} ${studentLastName}`;
+
+  return studentFullName;
 };
