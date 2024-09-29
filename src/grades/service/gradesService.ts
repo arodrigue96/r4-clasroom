@@ -58,12 +58,16 @@ export const addGrade = (
   };
 
   const gradeExist = grades.some(
-    (grade) => grade.studentId === gradeData.studentId
+    (grade) =>
+      grade.studentId === gradeData.studentId &&
+      grade.courseId === gradeData.courseId
   );
 
   if (!gradeExist) {
     grades.push(gradeData);
-  } else {
-    showErrorModal("Ya existe una nota para este estudiante");
+
+    return;
   }
+
+  showErrorModal("Ya existe una nota para este estudiante");
 };
